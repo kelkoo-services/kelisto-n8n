@@ -1,0 +1,90 @@
+{
+    "name": "n8n",
+    "description": "Desplega N8N en Heroku",
+    "keywords": [
+      "n8n",
+      "node",
+      "automation"
+    ],
+    "website": "https://n8n.io",
+    "repository": "https://github.com/kelkoo-services/kelisto-n8n",
+    "logo": "https://raw.githubusercontent.com/n8n-io/n8n/master/packages/editor-ui/public/favicon-32x32.png",
+    "success_url": "/",
+    "stack": "container",
+    "env": {
+      "GENERIC_TIMEZONE": {
+        "description": "Default Timezone",
+        "value": "Europe/Madrid"
+      },
+      "N8N_BASIC_AUTH_ACTIVE": {
+        "description": "Enable Basic Authentication (user/password)",
+        "value": "true"
+      },
+      "N8N_BASIC_AUTH_USER": {
+        "description": "Default Basic Authentication User",
+        "value": "add-your-user-here"
+      },
+      "N8N_BASIC_AUTH_PASSWORD": {
+        "description": "Default Basic Authentication Password",
+        "value": "add-your-password-here"
+      },
+      "N8N_ENCRYPTION_KEY": {
+        "description": "This is to set the encryption key n8n to a static value, so that heroku does not override it, causing AUTH to fail.",
+        "value": "add-your-encryption-key-here"
+      },
+      "PGSSLMODE": {
+        "description": "Heroku made a change, so SSL is required to connect to Postgres",
+        "value": "require"
+      },
+      "NODE_TLS_REJECT_UNAUTHORIZED": {
+        "description": "Always set to 0",
+        "value": "0"
+      },
+      "N8N_EDITOR_BASE_URL": {
+        "description": "Public URL where users can access the editor. Also used for emails sent from N8N.",
+        "value": "add-your-url-here"
+      },
+      "N8N_EMAIL_MODE": {
+        "description": "Use of SMTP",
+        "value": "smtp"
+      },
+      "N8N_SMTP_HOST": {
+        "description": "SMTP server name",
+        "value": "add-your-value-here"
+      },
+      "N8N_SMTP_USER": {
+        "description": "SMTP username",
+        "value": "add-your-value-here"
+      },
+      "N8N_SMTP_PASS": {
+        "description": "SMTP password",
+        "value": "add-your-value-here"
+      },
+      "N8N_SMTP_SENDER": {
+        "description": "You can select the sender name from the sender addresses. Example: contact@n8n.com",
+        "value": "add-your-value-here"
+      },
+      "WEBHOOK_URL": {
+        "description": "Public URLs for webooks",
+        "value": "add-your-value-here"
+      }
+    },
+    "formation": {
+      "web": {
+        "quantity": 1,
+        "size": "standard-1x"
+      }
+    },
+    "addons": [
+      {
+        "plan": "heroku-postgresql",
+        "options": {
+          "version": "11"
+        }
+      },
+      {
+        "plan": "papertrail:choklad"
+      }
+    ]
+  }
+  
